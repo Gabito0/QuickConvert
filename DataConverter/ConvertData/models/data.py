@@ -2,7 +2,6 @@ from django.db import models
 
 class DataSource(models.Model):
   soure_id= models.AutoField(primary_key=True, blank=False)
-  name = models.CharField(max_length=200, blank=False)
   description = models.TextField(blank=False) 
   source_type = models.CharField(max_length=50,blank=False)
 

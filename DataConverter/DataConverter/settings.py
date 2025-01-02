@@ -88,10 +88,6 @@ DATABASES = {
     }
 }
 
-print(os.getenv('USER'))
-print(os.getenv('PASSWORD'))
-print(os.getenv('HOST'))
-print(os.getenv('PORT'))
 
 # Password validation
 # https://docs.djangoproject.com/en/5.1/ref/settings/#auth-password-validators
@@ -128,6 +124,9 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/5.1/howto/static-files/
 
 STATIC_URL = 'static/'
+STATICFILES_DIRS = [
+    BASE_DIR / "static",  # Or the full path to your static directory
+]
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/5.1/ref/settings/#default-auto-field

@@ -4,12 +4,38 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}" />
   </head>
   <body>
-    <form action="{% url 'QuickConvert:convert'%}" method="post">
-      {% csrf_token %}
-      <textarea rows="5" columns="20" name="data"></textarea>
-      <input type="submit" />
-    </form>
+    <div id="form-main">
+      <div id="form-div">
+        <form
+          class="form"
+          id="form1"
+          action="{% url 'QuickConvert:convert'%}"
+          method="post"
+        >
+          {% csrf_token %}
+          <p class="text">
+            <textarea
+              name="data"
+              class="validate[required,length[6,300]] feedback-input"
+              id="data"
+              placeholder="Enter Data"
+            ></textarea>
+          </p>
+          <div class="submit">
+            <input type="submit" id="button-blue" />
+            <div class="ease"></div>
+          </div>
+        </form>
+      </div>
+    </div>
+    <div class="window">
+      {% if json_data %}
+      <p>{{json_data}}</p>
+      {% endif %}
+    </div>
   </body>
 </html>
